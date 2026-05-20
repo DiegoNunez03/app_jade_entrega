@@ -1,0 +1,17 @@
+module Structures
+
+NavBar 1.0 NavBar.qml
+Steps 1.0 Steps.qml
+SectionOne 1.0 SectionOne.qml
+SectionTwo 1.0 SectionTwo.qml
+SectionFour 1.0 SectionFour.qml
+SectionFive 1.0 SectionFive.qml
+ActionCardsGrid 1.0 ActionCardsGrid.qml
+HomeHeader 1.0 HomeHeader.qml
+SettingsNav 1.0 SettingsNav.qml
+SectionSolicitudesGeneradas 1.0 SectionSolicitudesGeneradas.qml
+SectionRegistrarDestinatario 1.0 SectionRegistrarDestinatario.qml
+SectionListaDestinatarios 1.0 SectionListaDestinatarios.qml
+SectionTree 1.0 SectionTree.qml
+StepsTutor 1.0 StepsTutor.qml
+StepsBaja 1.0 StepsBaja.qml

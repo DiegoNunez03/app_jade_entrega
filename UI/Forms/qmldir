@@ -1,0 +1,11 @@
+module Forms 
+
+FormDestinatario 1.0 FormDestinatario.qml
+FormResponsable 1.0 FormResponsable.qml
+FormSede 1.0 FormSede.qml
+FormDatosAutomaticos 1.0 FormDatosAutomaticos.qml
+FormPrevisualizacion 1.0 FormPrevisualizacion.qml
+FormBajaInstitucional 1.0 FormBajaInstitucional.qml
+FormBajaBeneficiario 1.0 FormBajaBeneficiario.qml
+FormBajaResponsable 1.0 FormBajaResponsable.qml
+FormPrevisualizacionBaja 1.0 FormPrevisualizacionBaja.qml

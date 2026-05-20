@@ -1,0 +1,50 @@
+[
+    {
+        "id": 5,
+        "nombre": "sadmkasdksadamssad",
+        "apellido": "asfmmkasfas",
+        "turno": "mañana"
+    },
+    {
+        "id": 9,
+        "nombre": "saf asddas",
+        "apellido": "dsaasdsad",
+        "turno": "mañana"
+    },
+    {
+        "id": 4,
+        "nombre": "lalalala",
+        "apellido": "lalalala",
+        "turno": "mañana"
+    },
+    {
+        "id": 10,
+        "nombre": "Diego",
+        "apellido": "nioo",
+        "turno": "mañana"
+    },
+    {
+        "id": 3,
+        "nombre": "Ceferino",
+        "apellido": "Nuñez",
+        "turno": "tarde"
+    },
+    {
+        "id": 1,
+        "nombre": "Diego",
+        "apellido": "Nuñez",
+        "turno": "mañana"
+    },
+    {
+        "id": 7,
+        "nombre": "asdmasdmad",
+        "apellido": "samdasdasdas",
+        "turno": "mañana"
+    },
+    {
+        "id": 8,
+        "nombre": "asdmdsa das",
+        "apellido": "sdasaddas",
+        "turno": "mañana"
+    }
+]

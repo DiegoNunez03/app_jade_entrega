@@ -1,0 +1,10 @@
+module Components
+
+CustonButton 1.0 CustonButton.qml
+CustonButton2 1.0 CustonButton2.qml
+InputText 1.0 InputText.qml 
+StepIndicator  1.0 StepIndicator.qml
+Label 1.0 Label.qml
+ActionCard 1.0 ActionCard.qml
+FieldHelpIcon 1.0 FieldHelpIcon.qml
+

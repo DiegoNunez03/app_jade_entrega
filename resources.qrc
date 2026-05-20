@@ -1,0 +1,71 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>UI/Utils/Logger.js</file>
+        <file>UI/Main.qml</file>
+      
+        <file>UI/Components/qmldir</file>
+        <file>UI/Components/CustonButton.qml</file>
+        <file>UI/Components/CustonButton2.qml</file>
+        <file>UI/Components/InputText.qml</file>
+        <file>UI/Components/StepIndicator.qml</file>
+        <file>UI/Components/Label.qml</file>
+        <file>UI/Components/ActionCard.qml</file>
+        <file>UI/Components/FieldHelpIcon.qml</file>
+       
+        <file>UI/Forms/qmldir</file>
+        <file>UI/Forms/FormDestinatario.qml</file>
+        <file>UI/Forms/FormResponsable.qml</file>
+        <file>UI/Forms/FormSede.qml</file>
+        <file>UI/Forms/FormDatosAutomaticos.qml</file>
+        <file>UI/Forms/FormPrevisualizacion.qml</file>
+        <file>UI/Forms/FormBajaInstitucional.qml</file>
+        <file>UI/Forms/FormBajaBeneficiario.qml</file>
+        <file>UI/Forms/FormBajaResponsable.qml</file>
+        <file>UI/Forms/FormPrevisualizacionBaja.qml</file>
+       
+        <file>UI/Structures/qmldir</file>
+        <file>UI/Structures/NavBar.qml</file>
+        <file>UI/Structures/SectionOne.qml</file>
+        <file>UI/Structures/SectionTwo.qml</file>
+        <file>UI/Structures/SectionFour.qml</file>
+        <file>UI/Structures/SectionFive.qml</file>
+        <file>UI/Structures/Steps.qml</file>
+        <file>UI/Structures/ActionCardsGrid.qml</file>
+        <file>UI/Structures/HomeHeader.qml</file>
+        <file>UI/Structures/SettingsNav.qml</file>
+        <file>UI/Structures/SectionSolicitudesGeneradas.qml</file>
+        <file>UI/Structures/SectionRegistrarDestinatario.qml</file>
+        <file>UI/Structures/SectionListaDestinatarios.qml</file>
+        <file>UI/Structures/SectionTree.qml</file>
+        <file>UI/Structures/StepsTutor.qml</file>
+        <file>UI/Structures/StepsBaja.qml</file>
+
+        <file>UI/Theme/qmldir</file>
+        <file>UI/Theme/AppTheme.qml</file>
+
+        <file>UI/Assets/waves_inicial.png</file>
+        <file>UI/Assets/waves_compacto.png</file>
+        <file>UI/Assets/waves_fullscreen.png</file>
+        <file>UI/Assets/form.png</file>
+        <file>UI/Assets/icon_destinatario.png</file>
+        <file>UI/Assets/icon_ra.png</file>
+         <file>UI/Assets/config.png</file>
+         <file>UI/Assets/icon_jade.png</file>
+
+        <file>UI/Assets/icon/icon_home.svg</file>
+        <file>UI/Assets/icon/icon_solicitud_alta.svg</file>
+        <file>UI/Assets/icon/icon_solicitud_baja.svg</file>
+        <file>UI/Assets/icon/icon_config.svg</file>
+        <file>UI/Assets/icon/icon_lista.svg</file>
+        <file>UI/Assets/icon/icon_nuevo_destinatario.svg</file>
+        <file>UI/Assets/icon/icon_solicitudes.svg</file>
+        <file>UI/Assets/icon/lista_accion.png</file>
+        <file>UI/Assets/icon/nueva_alta_accion.png</file>
+        <file>UI/Assets/icon/solicitud_generada_accion.png</file>
+         <file>UI/Assets/icon/nuevo_destinatario_accion.png</file>
+
+        <file>UI/Layout/qmldir</file>
+        <file>UI/Layout/AppLayout.qml</file>
+
+    </qresource>
+</RCC>
