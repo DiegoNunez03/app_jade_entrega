@@ -24,9 +24,14 @@ Rectangle {
     //***********************************************************
 
     property bool edadAutomaticaActual: false
+    property bool fechaAutomaticaActual: true
+    property string fechaActualConfigurada: ""
+
     property int configuracionActual: 1
 
     signal edadAutomaticaCambiada(bool valor)
+    signal fechaAutomaticaCambiada(bool valor)
+    signal fechaActualCambiada(string valor)
 
     readonly property bool modoCompacto: root.width < 1030
 
@@ -145,7 +150,14 @@ Rectangle {
                     )
 
                     formSix.cargarConfiguracionAutomatica(configuracionAutomatica)
+
+                    root.edadAutomaticaActual = configuracionAutomatica.edadAutomatica
+                    root.fechaAutomaticaActual = configuracionAutomatica.fechaAutomatica
+                    root.fechaActualConfigurada = configuracionAutomatica.fechaActual || ""
+
                     root.edadAutomaticaCambiada(configuracionAutomatica.edadAutomatica)
+                    root.fechaAutomaticaCambiada(configuracionAutomatica.fechaAutomatica)
+                    root.fechaActualCambiada(configuracionAutomatica.fechaActual || "")
 
                     let configuracionGuardado = controladorConfiguracion.cargarConfiguracionGuardado()
 
@@ -175,7 +187,13 @@ Rectangle {
                         resultado
                     )
 
+                    root.edadAutomaticaActual = datos.edadAutomatica
+                    root.fechaAutomaticaActual = datos.fechaAutomatica
+                    root.fechaActualConfigurada = datos.fechaActual || ""
+
                     root.edadAutomaticaCambiada(datos.edadAutomatica)
+                    root.fechaAutomaticaCambiada(datos.fechaAutomatica)
+                    root.fechaActualCambiada(datos.fechaActual || "")
                 }
 
                 onCarpetaCopiaExternaCapturada: function(ruta) {
@@ -216,5 +234,3 @@ Rectangle {
         }
     }
 }
-
-

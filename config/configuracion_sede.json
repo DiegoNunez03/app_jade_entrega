@@ -6,5 +6,10 @@
     "barrio": "-",
     "fechaAutomatica": true,
     "edadAutomatica": true,
-    "fechaActual": "20/05/2026"
+    "fechaActual": "22/05/2026",
+    "coordinadora": "Candela Rossi",
+    "profesionalesIntervinientes": [
+        "Laura",
+        "Diego"
+    ]
 }
