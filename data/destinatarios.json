@@ -1,11 +1,5 @@
 [
     {
-        "id": 5,
-        "nombre": "sadmkasdksadamssad",
-        "apellido": "asfmmkasfas",
-        "turno": "mañana"
-    },
-    {
         "id": 9,
         "nombre": "saf asddas",
         "apellido": "dsaasdsad",
@@ -34,6 +28,12 @@
         "nombre": "Diego",
         "apellido": "Nuñez",
         "turno": "mañana"
+    },
+    {
+        "id": 5,
+        "nombre": "alfredo",
+        "apellido": "patiño",
+        "turno": "tarde"
     },
     {
         "id": 7,
