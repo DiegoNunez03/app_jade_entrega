@@ -141,8 +141,25 @@ Rectangle {
         root.datosResponsable = {
             responsableNombre: inputNombre.text,
             responsableApellido: inputApellido.text,
+
+            // Datos planos actuales.
+            // Se mantienen para no romper controlador_altas.py,
+            // previsualización ni generación Excel.
             responsableTelefono: root.telefonoCompleto,
             responsableDomicilio: root.domicilioFinal,
+
+            // Datos estructurados nuevos.
+            // Estos son los que después puede consumir el backend/schema.
+            responsableDireccionSchema: {
+                calle: inputCalle.text,
+                numero: inputNumero.text
+            },
+
+            responsableTelefonoSchema: {
+                codigo_area: inputCodigoArea.text,
+                numero: inputNumeroTelefono.text
+            },
+
             responsableDni: inputDNI.text,
             responsableParentesco: comboParentesco.currentText,
             responsableFechaNacimiento: inputFechaNacimiento.text,

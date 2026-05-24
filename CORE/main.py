@@ -1,4 +1,4 @@
-# sys.exit(app.exec())
+# app_jade / CORE / main.py
 
 import sys
 from pathlib import Path
@@ -25,9 +25,9 @@ import resources
 # CONTROLADORES PYTHON
 # ============================================================
 
-from CORE.controlador_altas import ControladorAltas
-from CORE.controlador_bajas import ControladorBajas
-from CORE.controlador_configuracion import ControladorConfiguracion
+from CORE.controladores.controlador_altas import ControladorAltas
+from CORE.controladores.controlador_bajas import ControladorBajas
+from CORE.controladores.controlador_configuracion import ControladorConfiguracion
 from CORE.controlador_destinatarios import ControladorDestinatarios
 from CORE.fuente_manager import FuenteManager
 

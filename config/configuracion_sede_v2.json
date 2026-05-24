@@ -1,0 +1,30 @@
+{
+    "origen": "Envión",
+    "nombre_sede": "Villa Arias",
+    "ubicacion": {
+        "municipio": "Coronel Rosales",
+        "localidad": "Punta Alta",
+        "barrio": ""
+    },
+    "coordinador": {
+        "nombre": "Diego",
+        "apellido": "Nuñez",
+        "rol": {
+            "nombre": "Trabajadora social",
+            "siglas": "TS"
+        }
+    },
+    "profesionales": [
+        {
+            "nombre": "Diego",
+            "apellido": "Nuñez",
+            "rol": {
+                "nombre": "Trabajadora social",
+                "siglas": "TS"
+            }
+        }
+    ],
+    "fechaAutomatica": true,
+    "edadAutomatica": true,
+    "fechaActual": "24/05/2026"
+}

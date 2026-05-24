@@ -96,7 +96,7 @@ Rectangle {
 
         inputNombre.text = ""
         inputApellido.text = ""
-        inputTipoDni.text = ""
+        comboTipoDni.currentIndex = 0
         inputDni.text = ""
         inputFechaIngreso.text = ""
 
@@ -118,7 +118,7 @@ Rectangle {
             bajaApellido: inputApellido.text,
             bajaNombreCompleto: root.nombreCompleto,
 
-            bajaTipoDni: inputTipoDni.text,
+            bajaTipoDni: comboTipoDni.currentText,
             bajaDni: inputDni.text,
             bajaFechaIngreso: inputFechaIngreso.text,
 
@@ -324,15 +324,35 @@ Rectangle {
                     campoObligatorio: true
                     tieneError: root.campoTieneError(campoId)
 
-                    InputText {
-                        id: inputTipoDni
-
+                    Column {
                         anchors.fill: parent
                         anchors.rightMargin: 28
+                        spacing: 4
 
-                        label: fieldTipoDni.labelConObligatorio("Tipo")
-                        placeholder: "DNI"
-                        width: parent.width
+                        Text {
+                            text: fieldTipoDni.labelConObligatorio("Tipo")
+
+                            color: fieldTipoDni.tieneError
+                                   ? "#DC2626"
+                                   : AppTheme.colorPrimario
+
+                            font.family: AppTheme.fuenteTitulo
+                            font.pixelSize: 15
+                            font.bold: true
+                        }
+
+                        ComboBox {
+                            id: comboTipoDni
+
+                            width: parent.width
+                            height: 38
+
+                            model: [
+                                "DNI"
+                            ]
+
+                            currentIndex: 0
+                        }
                     }
 
                     FieldHelpIcon {
@@ -341,7 +361,7 @@ Rectangle {
                         anchors.topMargin: 2
                         anchors.rightMargin: 2
 
-                        mensaje: "- Ejemplo: DNI\n- Texto corto"
+                        mensaje: "- Selección obligatoria\n- Por ahora se usa DNI"
                     }
                 }
 

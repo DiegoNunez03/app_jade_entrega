@@ -83,7 +83,8 @@ Rectangle {
 
     readonly property real contenidoAltoFormulario: columFields.implicitHeight + root.camposY
 
-    // Dirección reconstruida internamente desde la interfaz
+    // Dirección reconstruida internamente desde la interfaz.
+    // Se mantiene para compatibilidad con previsualización / Excel actual.
     readonly property string direccionCompleta: (
         inputCalle.text.trim() + " " + inputNumero.text.trim()
     ).trim()
@@ -113,10 +114,19 @@ Rectangle {
             apellido: inputApellido.text,
             dni: inputDNI.text,
 
+            // Datos planos actuales.
+            // Se mantienen para no romper controlador_altas.py,
+            // previsualización ni generación Excel.
             calle: inputCalle.text,
             numero: inputNumero.text,
-
             direccion: root.direccionCompleta,
+
+            // Datos estructurados nuevos.
+            // Estos son los que después puede consumir el backend/schema.
+            direccionSchema: {
+                calle: inputCalle.text,
+                numero: inputNumero.text
+            },
 
             escolarizado: escolarizadoSi.checked
                 ? "Sí"
@@ -589,5 +599,3 @@ Rectangle {
         }
     }
 }
-
-

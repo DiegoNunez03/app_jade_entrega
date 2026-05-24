@@ -62,7 +62,7 @@ ApplicationWindow {
             }
 
             if (opcion === 3) {
-                mainWindow.sectionActive = 3
+                mainWindow.sectionActive = 2
                 sectiontree.abrirAltaTutorDesdeMenu()
                 return
             }
