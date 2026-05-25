@@ -11,6 +11,7 @@
         <file>UI/Components/Label.qml</file>
         <file>UI/Components/ActionCard.qml</file>
         <file>UI/Components/FieldHelpIcon.qml</file>
+        <file>UI/Components/ValidationMessageBox.qml</file>
        
         <file>UI/Forms/qmldir</file>
         <file>UI/Forms/FormDestinatario.qml</file>

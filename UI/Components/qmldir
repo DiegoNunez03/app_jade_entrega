@@ -7,4 +7,4 @@ StepIndicator  1.0 StepIndicator.qml
 Label 1.0 Label.qml
 ActionCard 1.0 ActionCard.qml
 FieldHelpIcon 1.0 FieldHelpIcon.qml
-
+ValidationMessageBox 1.0 ValidationMessageBox.qml
