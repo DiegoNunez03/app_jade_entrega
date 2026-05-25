@@ -1,4 +1,4 @@
-// UI / Structures / SectionListaDestinatarios.qml
+// UI / Sections / SectionListaDestinatarios.qml
 
 import QtQuick
 import QtQuick.Controls
@@ -32,7 +32,84 @@ Rectangle {
     property string apellidoEdicion: ""
     property string turnoEdicion: "mañana"
 
+    property var erroresModificacion: []
+    property var erroresCamposModificacion: ({})
+
     readonly property bool modoCompacto: root.width < 1030
+
+    function mensajeDesdeResultado(resultado) {
+        var texto = String(resultado || "").trim()
+
+        if (texto.indexOf("ERROR|") === 0) {
+            return texto.substring(6).trim()
+        }
+
+        if (texto.indexOf("OK|") === 0) {
+            return texto.substring(3).trim()
+        }
+
+        return texto
+    }
+
+    function limpiarErroresModificacion() {
+        root.erroresModificacion = []
+        root.erroresCamposModificacion = ({})
+    }
+
+    function aplicarErroresModificacion(errores) {
+        var mapaErrores = {}
+
+        if (errores) {
+            for (var i = 0; i < errores.length; i++) {
+                if (errores[i].campo !== undefined && errores[i].campo !== null) {
+                    mapaErrores[errores[i].campo] = true
+                }
+            }
+        }
+
+        root.erroresCamposModificacion = mapaErrores
+    }
+
+    function campoModificacionTieneError(campoId) {
+        return root.erroresCamposModificacion[campoId] === true
+    }
+
+    function inferirCampoErrorModificacion(mensaje) {
+        var texto = String(mensaje || "").toLowerCase()
+
+        if (texto.indexOf("nombre") >= 0 && texto.indexOf("apellido") < 0) {
+            return "nombre"
+        }
+
+        if (texto.indexOf("apellido") >= 0 && texto.indexOf("nombre") < 0) {
+            return "apellido"
+        }
+
+        if (texto.indexOf("turno") >= 0) {
+            return "turno"
+        }
+
+        return ""
+    }
+
+    function erroresDesdeResultadoModificacion(resultado) {
+        var mensaje = root.mensajeDesdeResultado(resultado)
+
+        if (mensaje === "") {
+            return []
+        }
+
+        var campo = root.inferirCampoErrorModificacion(mensaje)
+
+        if (campo !== "") {
+            return [{
+                campo: campo,
+                mensaje: mensaje
+            }]
+        }
+
+        return [mensaje]
+    }
 
     function cargarDestinatarios() {
         destinatariosModel.clear()
@@ -146,6 +223,7 @@ Rectangle {
         inputApellidoEdicion.text = root.apellidoEdicion
         comboTurnoEdicion.currentIndex = root.turnoEdicion === "tarde" ? 1 : 0
 
+        root.limpiarErroresModificacion()
         dialogoModificarDestinatario.open()
     }
 
@@ -158,6 +236,7 @@ Rectangle {
         root.nombreEdicion = ""
         root.apellidoEdicion = ""
         root.turnoEdicion = "mañana"
+        root.limpiarErroresModificacion()
     }
 
     function modificarDestinatarioSeleccionado() {
@@ -186,10 +265,16 @@ Rectangle {
         root.mensajeEstado = resultado
 
         if (resultado.startsWith("ERROR|")) {
-            root.limpiarSeleccionDestinatario()
+            var errores = root.erroresDesdeResultadoModificacion(resultado)
+
+            root.erroresModificacion = errores
+            root.aplicarErroresModificacion(errores)
+
+            dialogoModificarDestinatario.open()
             return
         }
 
+        root.limpiarErroresModificacion()
         root.limpiarSeleccionDestinatario()
         root.cargarDestinatarios()
         root.mensajeEstado = resultado
@@ -518,9 +603,9 @@ Rectangle {
 
         contentItem: Rectangle {
             width: 500
-            height: 410
+            height: root.erroresModificacion.length > 0 ? 500 : 410
             implicitWidth: 500
-            implicitHeight: 410
+            implicitHeight: root.erroresModificacion.length > 0 ? 500 : 410
             color: "#FFFFFF"
 
             Column {
@@ -538,13 +623,19 @@ Rectangle {
                     font.bold: true
                 }
 
+                ValidationMessageBox {
+                    width: parent.width
+                    errores: root.erroresModificacion
+                    titulo: "Corregí los datos del destinatario:"
+                }
+
                 Column {
                     width: parent.width
                     spacing: 6
 
                     Text {
                         text: "Apellido"
-                        color: AppTheme.colorTextoSecundario
+                        color: root.campoModificacionTieneError("apellido") ? "#DC2626" : AppTheme.colorTextoSecundario
                         font.family: AppTheme.fuenteCuerpo
                         font.pixelSize: 12
                     }
@@ -556,8 +647,16 @@ Rectangle {
                         placeholderText: "Apellido"
                         selectByMouse: true
 
+                        background: Rectangle {
+                            radius: 6
+                            color: "#FFFFFF"
+                            border.color: root.campoModificacionTieneError("apellido") ? "#DC2626" : "#D1D5DB"
+                            border.width: root.campoModificacionTieneError("apellido") ? 2 : 1
+                        }
+
                         onTextChanged: {
                             root.apellidoEdicion = text
+                            root.limpiarErroresModificacion()
                         }
                     }
                 }
@@ -568,7 +667,7 @@ Rectangle {
 
                     Text {
                         text: "Nombre"
-                        color: AppTheme.colorTextoSecundario
+                        color: root.campoModificacionTieneError("nombre") ? "#DC2626" : AppTheme.colorTextoSecundario
                         font.family: AppTheme.fuenteCuerpo
                         font.pixelSize: 12
                     }
@@ -580,8 +679,16 @@ Rectangle {
                         placeholderText: "Nombre"
                         selectByMouse: true
 
+                        background: Rectangle {
+                            radius: 6
+                            color: "#FFFFFF"
+                            border.color: root.campoModificacionTieneError("nombre") ? "#DC2626" : "#D1D5DB"
+                            border.width: root.campoModificacionTieneError("nombre") ? 2 : 1
+                        }
+
                         onTextChanged: {
                             root.nombreEdicion = text
+                            root.limpiarErroresModificacion()
                         }
                     }
                 }
@@ -592,7 +699,7 @@ Rectangle {
 
                     Text {
                         text: "Turno"
-                        color: AppTheme.colorTextoSecundario
+                        color: root.campoModificacionTieneError("turno") ? "#DC2626" : AppTheme.colorTextoSecundario
                         font.family: AppTheme.fuenteCuerpo
                         font.pixelSize: 12
                     }
@@ -603,8 +710,16 @@ Rectangle {
                         height: 42
                         model: ["mañana", "tarde"]
 
+                        background: Rectangle {
+                            radius: 6
+                            color: "#FFFFFF"
+                            border.color: root.campoModificacionTieneError("turno") ? "#DC2626" : "#D1D5DB"
+                            border.width: root.campoModificacionTieneError("turno") ? 2 : 1
+                        }
+
                         onCurrentTextChanged: {
                             root.turnoEdicion = currentText
+                            root.limpiarErroresModificacion()
                         }
                     }
                 }
@@ -1112,7 +1227,7 @@ Rectangle {
                         anchors.rightMargin: 14
                         anchors.verticalCenter: parent.verticalCenter
 
-                        text: root.mensajeEstado
+                        text: root.mensajeDesdeResultado(root.mensajeEstado)
                         elide: Text.ElideRight
                         color: root.mensajeEstado.startsWith("ERROR|") ? "#991B1B" : AppTheme.colorTextoSecundario
                         font.family: AppTheme.fuenteCuerpo
@@ -1301,3 +1416,4 @@ Rectangle {
         }
     }
 }
+
