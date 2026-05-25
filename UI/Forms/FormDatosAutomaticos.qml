@@ -28,6 +28,32 @@ Rectangle {
     property real altoCampo: 78
     property real altoBotonera: 56
 
+    // =====================================================
+    // VALIDACIÓN VISUAL
+    // =====================================================
+
+    property var erroresCampos: ({})
+
+    function limpiarErroresValidacion() {
+        root.erroresCampos = ({})
+    }
+
+    function aplicarErroresValidacion(errores) {
+        var mapaErrores = {}
+
+        if (errores) {
+            for (var i = 0; i < errores.length; i++) {
+                mapaErrores[errores[i].campo] = true
+            }
+        }
+
+        root.erroresCampos = mapaErrores
+    }
+
+    function campoTieneError(campoId) {
+        return root.erroresCampos[campoId] === true
+    }
+
     readonly property bool modoCompacto: root.width < 760
 
     readonly property real contenidoAncho: Math.max(
@@ -81,6 +107,8 @@ Rectangle {
     }
 
     function cargarConfiguracionAutomatica(datos) {
+        root.limpiarErroresValidacion()
+
         root.fechaAutomaticaActiva = datos.fechaAutomatica === true
 
         if (root.fechaAutomaticaActiva) {
@@ -187,7 +215,9 @@ Rectangle {
                     width: root.anchoCampoPrincipal
                     height: root.altoCampo
 
+                    campoId: "fechaActual"
                     campoObligatorio: true
+                    tieneError: root.campoTieneError(campoId)
 
                     InputText {
                         id: inputFechaAutomatica
@@ -259,7 +289,9 @@ Rectangle {
                     width: root.anchoCampoPrincipal
                     height: root.altoCampo
 
+                    campoId: "edadAutomatica"
                     campoObligatorio: true
+                    tieneError: root.campoTieneError(campoId)
 
                     InputText {
                         id: inputEdadAutomatica
@@ -366,7 +398,9 @@ Rectangle {
                                 : Math.max(320, parent.width - 200)
 
                             height: root.altoCampo
+                            campoId: "carpetaCopiaExternaSolicitudes"
                             campoObligatorio: false
+                            tieneError: root.campoTieneError(campoId)
 
                             InputText {
                                 id: inputUbicacionGuardado
@@ -480,7 +514,9 @@ Rectangle {
     component FieldBox: Rectangle {
         id: fieldBox
 
+        property string campoId: ""
         property bool campoObligatorio: true
+        property bool tieneError: false
 
         function labelConObligatorio(texto) {
             return fieldBox.campoObligatorio ? texto + " *" : texto
@@ -488,8 +524,8 @@ Rectangle {
 
         radius: 10
         color: "#FFFFFF"
-        border.color: "#E5E7EB"
-        border.width: 1
+        border.color: fieldBox.tieneError ? "#DC2626" : "#E5E7EB"
+        border.width: fieldBox.tieneError ? 2 : 1
 
         default property alias content: contentHost.data
 

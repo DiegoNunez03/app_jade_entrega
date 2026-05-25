@@ -24,7 +24,7 @@
             }
         }
     ],
-    "fechaAutomatica": true,
+    "fechaAutomatica": false,
     "edadAutomatica": true,
-    "fechaActual": "24/05/2026"
+    "fechaActual": "25/05/2026"
 }
