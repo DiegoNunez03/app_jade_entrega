@@ -9,6 +9,7 @@ import Components 1.0
 import Structures 1.0
 import Theme 1.0
 import Layout 1.0
+import Sections 1.0
 
 import "Utils/Logger.js" as Logger
 

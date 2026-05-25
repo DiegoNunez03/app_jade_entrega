@@ -12,6 +12,12 @@
         "turno": "mañana"
     },
     {
+        "id": 4,
+        "nombre": "diego",
+        "apellido": "nuñez",
+        "turno": "mañana"
+    },
+    {
         "id": 1,
         "nombre": "pepe",
         "apellido": "nuñez",

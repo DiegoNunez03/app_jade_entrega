@@ -26,19 +26,21 @@
        
         <file>UI/Structures/qmldir</file>
         <file>UI/Structures/NavBar.qml</file>
-        <file>UI/Structures/SectionOne.qml</file>
-        <file>UI/Structures/SectionTwo.qml</file>
-        <file>UI/Structures/SectionFour.qml</file>
-        <file>UI/Structures/SectionFive.qml</file>
         <file>UI/Structures/Steps.qml</file>
         <file>UI/Structures/ActionCardsGrid.qml</file>
         <file>UI/Structures/HomeHeader.qml</file>
         <file>UI/Structures/SettingsNav.qml</file>
-        <file>UI/Structures/SectionSolicitudesGeneradas.qml</file>
-        <file>UI/Structures/SectionRegistrarDestinatario.qml</file>
-        <file>UI/Structures/SectionListaDestinatarios.qml</file>
         <file>UI/Structures/StepsTutor.qml</file>
         <file>UI/Structures/StepsBaja.qml</file>
+
+        <file>UI/Sections/qmldir</file>
+        <file>UI/Sections/SectionOne.qml</file>
+        <file>UI/Sections/SectionTwo.qml</file>
+        <file>UI/Sections/SectionFour.qml</file>
+        <file>UI/Sections/SectionFive.qml</file>
+        <file>UI/Sections/SectionSolicitudesGeneradas.qml</file>
+        <file>UI/Sections/SectionRegistrarDestinatario.qml</file>
+        <file>UI/Sections/SectionListaDestinatarios.qml</file>
 
         <file>UI/Theme/qmldir</file>
         <file>UI/Theme/AppTheme.qml</file>
