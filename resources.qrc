@@ -22,6 +22,7 @@
         <file>UI/Forms/FormBajaBeneficiario.qml</file>
         <file>UI/Forms/FormBajaResponsable.qml</file>
         <file>UI/Forms/FormPrevisualizacionBaja.qml</file>
+        <file>UI/Forms/FormTutorAlta.qml</file>
        
         <file>UI/Structures/qmldir</file>
         <file>UI/Structures/NavBar.qml</file>
@@ -36,7 +37,6 @@
         <file>UI/Structures/SectionSolicitudesGeneradas.qml</file>
         <file>UI/Structures/SectionRegistrarDestinatario.qml</file>
         <file>UI/Structures/SectionListaDestinatarios.qml</file>
-        <file>UI/Structures/SectionTree.qml</file>
         <file>UI/Structures/StepsTutor.qml</file>
         <file>UI/Structures/StepsBaja.qml</file>
 

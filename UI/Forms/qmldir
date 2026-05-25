@@ -9,3 +9,4 @@ FormBajaInstitucional 1.0 FormBajaInstitucional.qml
 FormBajaBeneficiario 1.0 FormBajaBeneficiario.qml
 FormBajaResponsable 1.0 FormBajaResponsable.qml
 FormPrevisualizacionBaja 1.0 FormPrevisualizacionBaja.qml
+FormTutorAlta 1.0 FormTutorAlta.qml
