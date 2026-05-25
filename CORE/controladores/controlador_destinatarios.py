@@ -12,11 +12,11 @@ from datetime import date
 
 from PySide6.QtCore import QObject, Slot
 
-from .calendario_asistencia import (
+from ..calendario_asistencia import (
     obtener_periodo_semanal,
     obtener_periodo_mensual,
 )
-from .generador_lista_asistencia import generar_lista_asistencia
+from ..generador_lista_asistencia import generar_lista_asistencia
 
 
 class ControladorDestinatarios(QObject):

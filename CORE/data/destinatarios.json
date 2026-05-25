@@ -1,0 +1,20 @@
+[
+    {
+        "id": 3,
+        "nombre": "maria",
+        "apellido": "luis",
+        "turno": "mañana"
+    },
+    {
+        "id": 2,
+        "nombre": "ailen",
+        "apellido": "nuñez",
+        "turno": "mañana"
+    },
+    {
+        "id": 1,
+        "nombre": "pepe",
+        "apellido": "nuñez",
+        "turno": "mañana"
+    }
+]

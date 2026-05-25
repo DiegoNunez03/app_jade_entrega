@@ -28,7 +28,7 @@ import resources
 from CORE.controladores.controlador_altas import ControladorAltas
 from CORE.controladores.controlador_bajas import ControladorBajas
 from CORE.controladores.controlador_configuracion import ControladorConfiguracion
-from CORE.controlador_destinatarios import ControladorDestinatarios
+from CORE.controladores.controlador_destinatarios import ControladorDestinatarios
 from CORE.fuente_manager import FuenteManager
 
 # ============================================================
