@@ -1,3 +1,4 @@
 module Layout
 
 singleton AppLayout 1.0 AppLayout.qml
+singleton JadeLayout 1.0 JadeLayout.qml

@@ -30,12 +30,17 @@ from CORE.controladores.controlador_bajas import ControladorBajas
 from CORE.controladores.controlador_configuracion import ControladorConfiguracion
 from CORE.controladores.controlador_destinatarios import ControladorDestinatarios
 from CORE.fuente_manager import FuenteManager
+from CORE.utils.diagnostico_visual import imprimir_diagnostico_visual
 
 # ============================================================
 # APLICACIÓN
 # ============================================================
 
 app = QGuiApplication(sys.argv)
+
+# Diagnóstico visual temporal para comparar Linux vs Windows.
+# No modifica la interfaz ni el comportamiento de JADE.
+# imprimir_diagnostico_visual(app)
 
 engine = QQmlApplicationEngine()
 
@@ -85,3 +90,4 @@ if not engine.rootObjects():
     sys.exit(-1)
 
 sys.exit(app.exec())
+

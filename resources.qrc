@@ -52,8 +52,11 @@
         <file>UI/Assets/form.png</file>
         <file>UI/Assets/icon_destinatario.png</file>
         <file>UI/Assets/icon_ra.png</file>
-         <file>UI/Assets/config.png</file>
-         <file>UI/Assets/icon_jade.png</file>
+        <file>UI/Assets/config.png</file>
+        <file>UI/Assets/icon_jade.png</file>
+        <file>UI/Assets/robot.png</file>
+        <file>UI/Assets/robot2.png</file>
+        <file>UI/Assets/cuadro_dialogo.png</file>
 
         <file>UI/Assets/icon/icon_home.svg</file>
         <file>UI/Assets/icon/icon_solicitud_alta.svg</file>
@@ -65,10 +68,12 @@
         <file>UI/Assets/icon/lista_accion.png</file>
         <file>UI/Assets/icon/nueva_alta_accion.png</file>
         <file>UI/Assets/icon/solicitud_generada_accion.png</file>
-         <file>UI/Assets/icon/nuevo_destinatario_accion.png</file>
+        <file>UI/Assets/icon/nuevo_destinatario_accion.png</file>
+
 
         <file>UI/Layout/qmldir</file>
         <file>UI/Layout/AppLayout.qml</file>
+        <file>UI/Layout/JadeLayout.qml</file>
 
     </qresource>
 </RCC>

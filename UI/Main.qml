@@ -3,7 +3,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-// import QtQuick.Shapes
 
 import Components 1.0
 import Structures 1.0
@@ -24,6 +23,7 @@ ApplicationWindow {
     color: AppTheme.colorFondo
     minimumWidth: 900
     minimumHeight: 600
+    visibility: Window.Maximized
 
     // PROPIEDADES
     property int sectionActive: 1
