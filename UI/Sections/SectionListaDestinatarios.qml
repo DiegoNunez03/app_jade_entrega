@@ -358,8 +358,6 @@ Rectangle {
         }
 
         contentItem: Rectangle {
-            // width: 440
-            // height: 550
             width: 440
             height: 360
             implicitWidth: 440
@@ -527,18 +525,6 @@ Rectangle {
                         }
                     }
                 }
-
-                // Text {
-                //     text: root.tipoListaSeleccionada === "mensual"
-                //           ? "Se generará la lista mensual del mes actual para el turno seleccionado."
-                //           : "Se generará la lista semanal de la semana actual para el turno seleccionado."
-
-                //     width: parent.width
-                //     wrapMode: Text.WordWrap
-                //     color: AppTheme.colorTextoSecundario
-                //     font.family: AppTheme.fuenteCuerpo
-                //     font.pixelSize: 12
-                // }
 
                 Row {
                     width: parent.width
@@ -933,93 +919,17 @@ Rectangle {
                         height: 1
                         Layout.fillWidth: true
                     }
-
-                    CustonButton2 {
-                        id: botonActualizar
-                        tipo: "custom"
-                        textoCustom: "Actualizar"
-                        iconoCustom: ""
-                        variante: "secondary"
-                        width: 150
-                        height: 42
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        onClicked: {
-                            root.cargarDestinatarios()
-                        }
-                    }
                 }
 
                 Rectangle {
-                    id: busquedaContainer
+                    id: controlesContainer
 
                     width: parent.width
-                    height: 62
-                    radius: 12
-                    color: "#FFFFFF"
-                    border.color: "#E5E7EB"
-                    border.width: 1
-
-                    Row {
-                        anchors.fill: parent
-                        anchors.leftMargin: 18
-                        anchors.rightMargin: 18
-                        spacing: 12
-
-                        Text {
-                            text: "Buscar:"
-                            color: AppTheme.colorTextoPrincipal
-                            font.family: AppTheme.fuenteCuerpo
-                            font.pixelSize: 14
-                            font.bold: true
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                        TextField {
-                            id: campoBusqueda
-                            width: parent.width - 270
-                            height: 40
-                            placeholderText: "Nombre y/o apellido"
-                            selectByMouse: true
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onTextChanged: {
-                                root.textoBusqueda = text
-                                root.cargarDestinatarios()
-                            }
-
-                            onAccepted: {
-                                root.cargarDestinatarios()
-                            }
-                        }
-
-                        Button {
-                            width: 120
-                            height: 38
-                            text: "Limpiar"
-                            anchors.verticalCenter: parent.verticalCenter
-                            enabled: root.textoBusqueda.trim() !== ""
-
-                            onClicked: {
-                                root.limpiarBusqueda()
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    id: filtrosContainer
-
-                    width: parent.width
-                    height: root.modoCompacto ? 124 : 78
+                    height: root.modoCompacto ? 112 : 78
                     radius: 12
                     color: "#F9FAFB"
                     border.color: "#E5E7EB"
                     border.width: 1
-
-                    // =================================================
-                    // MODO AMPLIO
-                    // =================================================
 
                     Row {
                         visible: !root.modoCompacto
@@ -1027,102 +937,51 @@ Rectangle {
                         anchors.fill: parent
                         anchors.leftMargin: 18
                         anchors.rightMargin: 18
-                        spacing: 24
-
-                        Text {
-                            text: "Filtro:"
-                            color: AppTheme.colorTextoPrincipal
-                            font.family: AppTheme.fuenteCuerpo
-                            font.pixelSize: 14
-                            font.bold: true
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                        RadioButton {
-                            text: "Sin filtro"
-                            checked: root.filtroActual === "todos"
-                            ButtonGroup.group: grupoFiltro
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onClicked: {
-                                root.aplicarFiltro("todos")
-                            }
-                        }
-
-                        RadioButton {
-                            text: "Turno mañana"
-                            checked: root.filtroActual === "mañana"
-                            ButtonGroup.group: grupoFiltro
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onClicked: {
-                                root.aplicarFiltro("mañana")
-                            }
-                        }
-
-                        RadioButton {
-                            text: "Turno tarde"
-                            checked: root.filtroActual === "tarde"
-                            ButtonGroup.group: grupoFiltro
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onClicked: {
-                                root.aplicarFiltro("tarde")
-                            }
-                        }
-
-                        Item {
-                            width: 1
-                            height: 1
-                            Layout.fillWidth: true
-                        }
-
-                        CustonButton2 {
-                            tipo: "custom"
-                            textoCustom: "Generar mañana"
-                            iconoCustom: ""
-                            variante: "primary"
-                            width: 170
-                            height: 40
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onClicked: {
-                                root.abrirDialogoGeneracion("mañana")
-                            }
-                        }
-
-                        CustonButton2 {
-                            tipo: "custom"
-                            textoCustom: "Generar tarde"
-                            iconoCustom: ""
-                            variante: "primary"
-                            width: 160
-                            height: 40
-                            anchors.verticalCenter: parent.verticalCenter
-
-                            onClicked: {
-                                root.abrirDialogoGeneracion("tarde")
-                            }
-                        }
-                    }
-
-                    // =================================================
-                    // MODO COMPACTO
-                    // =================================================
-
-                    Column {
-                        visible: root.modoCompacto
-
-                        anchors.fill: parent
-                        anchors.leftMargin: 18
-                        anchors.rightMargin: 18
-                        anchors.topMargin: 10
-                        anchors.bottomMargin: 10
-                        spacing: 8
+                        spacing: 22
 
                         Row {
-                            width: parent.width
+                            width: Math.max(330, parent.width * 0.36)
+                            height: parent.height
+                            spacing: 12
+
+                            Text {
+                                text: "Buscar:"
+                                color: AppTheme.colorTextoPrincipal
+                                font.family: AppTheme.fuenteCuerpo
+                                font.pixelSize: 14
+                                font.bold: true
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+
+                            TextField {
+                                id: campoBusqueda
+                                width: parent.width - 76
+                                height: 40
+                                placeholderText: "Nombre y/o apellido"
+                                selectByMouse: true
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                onTextChanged: {
+                                    root.textoBusqueda = text
+                                    root.cargarDestinatarios()
+                                }
+
+                                onAccepted: {
+                                    root.cargarDestinatarios()
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            width: 1
                             height: 42
+                            color: "#E5E7EB"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Row {
+                            width: parent.width - Math.max(330, parent.width * 0.36) - 45
+                            height: parent.height
                             spacing: 18
 
                             Text {
@@ -1166,12 +1025,6 @@ Rectangle {
                                     root.aplicarFiltro("tarde")
                                 }
                             }
-                        }
-
-                        Row {
-                            width: parent.width
-                            height: 42
-                            spacing: 12
 
                             Item {
                                 width: 1
@@ -1184,8 +1037,9 @@ Rectangle {
                                 textoCustom: "Generar mañana"
                                 iconoCustom: ""
                                 variante: "primary"
-                                width: 170
+                                width: 160
                                 height: 40
+                                anchors.verticalCenter: parent.verticalCenter
 
                                 onClicked: {
                                     root.abrirDialogoGeneracion("mañana")
@@ -1197,11 +1051,161 @@ Rectangle {
                                 textoCustom: "Generar tarde"
                                 iconoCustom: ""
                                 variante: "primary"
-                                width: 160
+                                width: 150
                                 height: 40
+                                anchors.verticalCenter: parent.verticalCenter
 
                                 onClicked: {
                                     root.abrirDialogoGeneracion("tarde")
+                                }
+                            }
+                        }
+                    }
+
+                    Row {
+                        visible: root.modoCompacto
+
+                        anchors.fill: parent
+                        anchors.leftMargin: 18
+                        anchors.rightMargin: 18
+                        anchors.topMargin: 10
+                        anchors.bottomMargin: 10
+                        spacing: 18
+
+                        Column {
+                            width: Math.max(280, parent.width * 0.42)
+                            height: parent.height
+                            spacing: 8
+
+                            Row {
+                                width: parent.width
+                                height: 40
+                                spacing: 12
+
+                                Text {
+                                    text: "Buscar:"
+                                    color: AppTheme.colorTextoPrincipal
+                                    font.family: AppTheme.fuenteCuerpo
+                                    font.pixelSize: 14
+                                    font.bold: true
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                TextField {
+                                    width: parent.width - 76
+                                    height: 38
+                                    placeholderText: "Nombre y/o apellido"
+                                    selectByMouse: true
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    text: root.textoBusqueda
+
+                                    onTextChanged: {
+                                        root.textoBusqueda = text
+                                        root.cargarDestinatarios()
+                                    }
+
+                                    onAccepted: {
+                                        root.cargarDestinatarios()
+                                    }
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            width: 1
+                            height: parent.height
+                            color: "#E5E7EB"
+                        }
+
+                        Column {
+                            width: parent.width - Math.max(280, parent.width * 0.42) - 19
+                            height: parent.height
+                            spacing: 8
+
+                            Row {
+                                width: parent.width
+                                height: 38
+                                spacing: 12
+
+                                Text {
+                                    text: "Filtro:"
+                                    color: AppTheme.colorTextoPrincipal
+                                    font.family: AppTheme.fuenteCuerpo
+                                    font.pixelSize: 14
+                                    font.bold: true
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                RadioButton {
+                                    text: "Sin filtro"
+                                    checked: root.filtroActual === "todos"
+                                    ButtonGroup.group: grupoFiltro
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    onClicked: {
+                                        root.aplicarFiltro("todos")
+                                    }
+                                }
+
+                                RadioButton {
+                                    text: "Mañana"
+                                    checked: root.filtroActual === "mañana"
+                                    ButtonGroup.group: grupoFiltro
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    onClicked: {
+                                        root.aplicarFiltro("mañana")
+                                    }
+                                }
+
+                                RadioButton {
+                                    text: "Tarde"
+                                    checked: root.filtroActual === "tarde"
+                                    ButtonGroup.group: grupoFiltro
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    onClicked: {
+                                        root.aplicarFiltro("tarde")
+                                    }
+                                }
+                            }
+
+                            Row {
+                                width: parent.width
+                                height: 40
+                                spacing: 12
+
+                                Item {
+                                    width: 1
+                                    height: 1
+                                    Layout.fillWidth: true
+                                }
+
+                                CustonButton2 {
+                                    tipo: "custom"
+                                    textoCustom: "Generar mañana"
+                                    iconoCustom: ""
+                                    variante: "primary"
+                                    width: 160
+                                    height: 38
+
+                                    onClicked: {
+                                        root.abrirDialogoGeneracion("mañana")
+                                    }
+                                }
+
+                                CustonButton2 {
+                                    tipo: "custom"
+                                    textoCustom: "Generar tarde"
+                                    iconoCustom: ""
+                                    variante: "primary"
+                                    width: 150
+                                    height: 38
+
+                                    onClicked: {
+                                        root.abrirDialogoGeneracion("tarde")
+                                    }
                                 }
                             }
                         }
@@ -1243,10 +1247,9 @@ Rectangle {
                         220,
                         columnaPrincipal.height
                         - filaTitulo.height
-                        - busquedaContainer.height
-                        - filtrosContainer.height
+                        - controlesContainer.height
                         - estadoContainer.height
-                        - (columnaPrincipal.spacing * 4)
+                        - (columnaPrincipal.spacing * 3)
                     )
 
                     radius: 14
@@ -1416,4 +1419,3 @@ Rectangle {
         }
     }
 }
-
