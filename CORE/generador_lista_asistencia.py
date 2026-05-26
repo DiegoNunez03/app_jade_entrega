@@ -16,8 +16,8 @@ from .calendario_asistencia import PeriodoAsistencia
 # CONFIGURACIÓN GENERAL
 # ============================================================
 
-DESTINATARIOS_POR_PAGINA_SEMANAL = 38
-DESTINATARIOS_POR_PAGINA_MENSUAL = 42
+DESTINATARIOS_POR_PAGINA_SEMANAL = 35
+DESTINATARIOS_POR_PAGINA_MENSUAL = 35
 
 
 # ============================================================
