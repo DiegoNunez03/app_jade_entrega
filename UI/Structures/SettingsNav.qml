@@ -8,7 +8,7 @@ import Theme 1.0
 
 Rectangle {
     id: root
-    width: 280
+    width: 190
     height: 420
     color: "#FFFFFF"
 
@@ -53,7 +53,7 @@ Rectangle {
 
             width: parent.width
 
-            label: "Configuración sede"
+            label: "Sede"
             iconText: "▣"
             active: root.selectedOption === 1
             disponible: root.sedeDisponible
@@ -69,33 +69,13 @@ Rectangle {
             }
         }
 
-        SettingsNavButton {
-            id: buttonTexto
-
-            width: parent.width
-
-            label: "Configuración texto"
-            iconText: "T"
-            active: root.selectedOption === 2
-            disponible: root.textoDisponible
-            tooltipBloqueado: "Configuración de texto pendiente de implementación."
-
-            onClicked: {
-                if (!buttonTexto.disponible) {
-                    return
-                }
-
-                root.selectedOption = 2
-                root.opcionSeleccionada(2)
-            }
-        }
 
         SettingsNavButton {
             id: buttonGeneral
 
             width: parent.width
 
-            label: "Configuración general"
+            label: "General"
             iconText: "⚙"
             active: root.selectedOption === 3
             disponible: root.generalDisponible

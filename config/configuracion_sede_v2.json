@@ -7,8 +7,8 @@
         "barrio": ""
     },
     "coordinador": {
-        "nombre": "Diego",
-        "apellido": "Nuñez",
+        "nombre": "Laura",
+        "apellido": "Garcia",
         "rol": {
             "nombre": "Trabajadora social",
             "siglas": "TS"
@@ -18,6 +18,22 @@
         {
             "nombre": "Diego",
             "apellido": "Nuñez",
+            "rol": {
+                "nombre": "Trabajadora social",
+                "siglas": "TS"
+            }
+        },
+        {
+            "nombre": "Laura",
+            "apellido": "Gomez",
+            "rol": {
+                "nombre": "Trabajadora social",
+                "siglas": "TS"
+            }
+        },
+        {
+            "nombre": "Laura",
+            "apellido": "Garcia",
             "rol": {
                 "nombre": "Trabajadora social",
                 "siglas": "TS"
