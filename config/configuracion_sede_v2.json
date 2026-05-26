@@ -1,6 +1,6 @@
 {
     "origen": "Envión",
-    "nombre_sede": "Bahia",
+    "nombre_sede": "Villa Arias",
     "ubicacion": {
         "municipio": "Coronel Rosales",
         "localidad": "Punta Alta",
@@ -14,33 +14,8 @@
             "siglas": "TS"
         }
     },
-    "profesionales": [
-        {
-            "nombre": "Diego",
-            "apellido": "Nuñez",
-            "rol": {
-                "nombre": "Trabajadora social",
-                "siglas": "TS"
-            }
-        },
-        {
-            "nombre": "Laura",
-            "apellido": "Gomez",
-            "rol": {
-                "nombre": "Trabajadora social",
-                "siglas": "TS"
-            }
-        },
-        {
-            "nombre": "Laura",
-            "apellido": "Garcia",
-            "rol": {
-                "nombre": "Trabajadora social",
-                "siglas": "TS"
-            }
-        }
-    ],
-    "fechaAutomatica": false,
+    "profesionales": [],
+    "fechaAutomatica": true,
     "edadAutomatica": true,
-    "fechaActual": "25/05/2026"
+    "fechaActual": "26/05/2026"
 }
