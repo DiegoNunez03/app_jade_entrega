@@ -389,6 +389,12 @@ Rectangle {
         formularioSource: ""
 
         pasoActualFormulario: root.pasoBajaActual
+        stepTitlesFormulario: [
+            "Institucional",
+            "Destinatario",
+            "Responsable",
+            "Previsualización"
+        ]
     }
 
     //***********************************************************

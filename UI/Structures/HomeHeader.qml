@@ -63,6 +63,12 @@ Rectangle {
 
     property int pasoActualFormulario: 1
 
+    property var stepTitlesFormulario: [
+        "Destinatario",
+        "Responsable",
+        "Previsualización"
+    ]
+
     property int formularioHeaderLeftMargin: 160
     property int formularioHeaderRightMargin: 64
 
@@ -344,11 +350,7 @@ Rectangle {
                 orientation: "horizontal"
                 currentStep: root.pasoActualFormulario
 
-                stepTitles: [
-                    "Destinatario",
-                    "Responsable",
-                    "Previsualización"
-                ]
+                stepTitles: root.stepTitlesFormulario
 
                 horizontalCircleSize: root.headerStepsCircleSize
                 horizontalStepWidth: root.headerStepsStepWidth
