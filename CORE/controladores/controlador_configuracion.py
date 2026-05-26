@@ -714,6 +714,32 @@ class ControladorConfiguracion(QObject):
 
         except Exception as error:
             return f"ERROR|No se pudo abrir la solicitud generada: {error}"
+        
+
+    @Slot(str, result=str)
+    def eliminarSolicitudGenerada(self, ruta: str) -> str:
+        try:
+            carpeta_base = self._obtener_carpeta_solicitudes_generadas()
+            ruta_archivo = Path(self._normalizar_ruta_recibida(ruta))
+
+            if not ruta_archivo.exists():
+                return f"ERROR|El archivo no existe: {ruta_archivo}"
+
+            if not ruta_archivo.is_file():
+                return f"ERROR|La ruta no corresponde a un archivo: {ruta_archivo}"
+
+            if not self._ruta_esta_dentro_de_carpeta(ruta_archivo, carpeta_base):
+                return "ERROR|Por seguridad, solo se pueden eliminar solicitudes generadas dentro de la carpeta interna del sistema."
+
+            if ruta_archivo.suffix.lower() not in [".xlsx", ".xls", ".docx", ".doc"]:
+                return "ERROR|Solo se pueden eliminar solicitudes generadas en formato Excel o Word."
+
+            ruta_archivo.unlink()
+
+            return f"OK|Solicitud eliminada correctamente: {ruta_archivo}"
+
+        except Exception as error:
+            return f"ERROR|No se pudo eliminar la solicitud generada: {error}"
 
     @Slot(result=str)
     def abrirCarpetaSolicitudesGeneradas(self) -> str:
