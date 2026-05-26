@@ -47,6 +47,18 @@ Rectangle {
 
     readonly property string altaHeaderPasoActual: root.pasoVisualActual + " de " + root.totalPasosAlta
 
+    readonly property var altaStepTitlesFormulario: root.esAltaTutor
+                                                     ? [
+                                                         "Tutor",
+                                                         "Previsualización"
+                                                     ]
+                                                     : [
+                                                         "Destinatario",
+                                                         "Responsable",
+                                                         "Previsualización"
+                                                     ]
+
+
     property var datosDestinatarioCapturados: ({})
     property var datosResponsableCapturados: ({})
     property var datosCompletosCapturados: ({})
@@ -123,13 +135,6 @@ Rectangle {
         ) + 12
     )
 
-    /*
-        Medidas controladas desde SectionTwo.
-
-        - El formulario tiene un ancho máximo.
-        - En compacto usa casi todo el ancho disponible.
-        - camposX queda pequeño porque el centrado lo hace SectionTwo.
-    */
     readonly property int formMaxWidth: 920
 
     readonly property int formOuterMargin: root.modoMuyCompacto
@@ -437,6 +442,8 @@ Rectangle {
         formularioSource: ""
 
         pasoActualFormulario: root.pasoVisualActual
+        stepTitlesFormulario: root.altaStepTitlesFormulario
+
     }
 
     //***********************************************************
