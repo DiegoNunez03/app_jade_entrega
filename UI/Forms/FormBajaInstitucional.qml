@@ -379,18 +379,6 @@ Rectangle {
 
                                 spacing: 5
 
-                                Text {
-                                    text: "Profesional"
-
-                                    color: fieldProfesional.tieneError
-                                           ? "#DC2626"
-                                           : AppTheme.colorPrimario
-
-                                    font.family: AppTheme.fuenteTitulo
-                                    font.pixelSize: 16
-                                    font.bold: true
-                                }
-
                                 ComboBox {
                                     id: comboProfesional
 
