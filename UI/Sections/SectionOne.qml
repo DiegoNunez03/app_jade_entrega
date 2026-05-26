@@ -11,7 +11,7 @@ import Structures 1.0
 Rectangle {
     id: root
 
-    color: "#f3f2f2"
+    color: "#ffffff"
 
     signal altaSolicitada()
     signal bajaSolicitada()

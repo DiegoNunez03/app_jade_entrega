@@ -18,7 +18,8 @@ Rectangle {
 
     width: 800
     height: 300
-    color: AppTheme.colorFondo
+    // color: AppTheme.colorFondo
+    color: "#fff"
 
     //***********************************************************
     //  PROPIEDADES PARA LÓGICA DEL FORMULARIO

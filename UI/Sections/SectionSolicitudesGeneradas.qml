@@ -13,7 +13,7 @@ import Structures 1.0
 Rectangle {
     id: root
 
-    color: AppTheme.colorFondo
+    color: "#fff"
 
     property string mensajeEstado: ""
 
