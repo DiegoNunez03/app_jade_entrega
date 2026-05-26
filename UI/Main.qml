@@ -32,12 +32,37 @@ ApplicationWindow {
     property bool fechaAutomaticaGlobal: true
     property string fechaActualGlobal: ""
 
+    // ============================================================
+    // ACTUALIZACIÓN DEL LAYOUT VISUAL
+    // ============================================================
+
+    function actualizarLayoutVisual() {
+        JadeLayout.actualizarViewport(mainWindow.width - sidebar.width, mainWindow.height)
+        JadeLayout.imprimirDiagnostico()
+    }
+
+    onWidthChanged: {
+        JadeLayout.actualizarViewport(mainWindow.width - sidebar.width, mainWindow.height)
+    }
+
+    onHeightChanged: {
+        JadeLayout.actualizarViewport(mainWindow.width - sidebar.width, mainWindow.height)
+    }
+
+    Component.onCompleted: {
+        actualizarLayoutVisual()
+    }
+
     NavBar {
         id: sidebar
 
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+
+        onWidthChanged: {
+            mainWindow.actualizarLayoutVisual()
+        }
 
         // **************************************************************
         // Opción 1 / SectionActive 1 -> HOME
@@ -245,7 +270,3 @@ ApplicationWindow {
         visible: mainWindow.sectionActive === 8
     }
 }
-
-
-
-
