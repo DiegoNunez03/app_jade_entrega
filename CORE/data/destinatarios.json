@@ -28,5 +28,17 @@
         "nombre": "Diego",
         "apellido": "Nuñez-",
         "turno": "mañana"
+    },
+    {
+        "id": 6,
+        "nombre": "salfkdvfs",
+        "apellido": "safklnsafl",
+        "turno": "mañana"
+    },
+    {
+        "id": 7,
+        "nombre": "dsamsda",
+        "apellido": "sda",
+        "turno": "tarde"
     }
 ]
